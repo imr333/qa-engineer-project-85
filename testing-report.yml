@@ -231,7 +231,7 @@
     Просмотр профиля игрока в лобби
   status: pass
   
-  - summary: |
+- summary: |
     Фильтрация таблицы лидеров за последнюю неделю 
   status: pass
   
@@ -247,7 +247,7 @@
     Переход в "TOP list" 
   status: pass
   
-  - summary: |
+- summary: |
     Создание игры "CREATE GAME"
   status: pass
   
