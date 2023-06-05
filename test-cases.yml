@@ -951,7 +951,7 @@
     Email = sansaq@mail.ru Пароль = qwertyq
   steps:
     - Кликаем на кнопку "CREATE GAME"
-    - Задаем параметры игры:
+    - Задаем параметры игры
         Выбор кол-ва звезд уровня ("Level") = "1"
         Выбор типа игры ("Game type") = "With other users"
         Выбор ограничения времени на игру ("Time control") = "10 min"
