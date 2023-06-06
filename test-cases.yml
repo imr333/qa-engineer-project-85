@@ -943,7 +943,7 @@
 - summary: |
     Создание игры "CREATE GAME"
   requirement: |
-    На главной странице сайта, пользователь может создать свою новую игру "CREATE GAME"
+    На главной странице сайта, пользователь может создать новую игру "CREATE GAME"
   prerequisites: |
     Произведена авторизация
     Открыта страница сайта https://codebattle.hexlet.io
@@ -975,3 +975,77 @@
     - Кликаем на крестик 
   expected-result: |
     Созданная пользователем игровая сессия, удалена из списка лобби
+    
+- summary: |
+    Создание игры "CREATE GAME" против друга
+  requirement: |
+    На главной странице сайта, пользователь может создать новую игру против друга "CREATE GAME"
+  prerequisites: |
+    Произведена авторизация
+    Открыта страница сайта https://codebattle.hexlet.io
+  test-data: |
+    Email = sansaq@mail.ru Пароль = qwertyq
+  steps:
+    - Кликаем на кнопку "CREATE GAME"
+    - Задаем параметры игры
+        Выбор кол-ва звезд уровня ("Level") = "1"
+        Выбор типа игры ("Game type") = "With a freind"
+        Выбор оппонента из списка предложенных "Choose opponent", (nickname = "Acemore")
+        Выбор ограничения времени на игру ("Time control") = "10 min"
+        Выбор игрового задания ("Choose task by name or tags") = "random task"
+    - Кликаем на кнопку "Create battle"
+  expected-result: |
+    Создана игровая сессия против выбранного друга, согласно заданным параметрам
+
+- summary: |
+    Создание игры "CREATE GAME" против бота
+  requirement: |
+    На главной странице сайта, пользователь может создать новую игру против бота "CREATE GAME"
+  prerequisites: |
+    Произведена авторизация
+    Открыта страница сайта https://codebattle.hexlet.io
+  test-data: |
+    Email = sansaq@mail.ru Пароль = qwertyq
+  steps:
+    - Кликаем на кнопку "CREATE GAME"
+    - Задаем параметры игры
+        Выбор кол-ва звезд уровня ("Level") = "1"
+        Выбор типа игры ("Game type") = "With a bot"
+        Выбор ограничения времени на игру ("Time control") = "10 min"
+        Выбор игрового задания ("Choose task by name or tags") = "random task"
+    - Кликаем на кнопку "Create battle"
+  expected-result: |
+    Создана игровая сессия против бота, согласно заданным параметрам
+    
+- summary: |
+    Функция "Give up" (сдаться)
+  requirement: |
+    Во время игровой сессии, пользователь может сдаться и завершить игру
+  prerequisites: |
+    Произведена авторизация
+    Открыта страница сайта https://codebattle.hexlet.io
+    Запущена игровая сессия
+  test-data: |
+    Email = sansaq@mail.ru Пароль = qwertyq
+  steps:
+    - Кликаем на кнопку "Give up"
+    - Подтверждаем во всплывающем окне сдачу "Give up"
+    - Кликаем конпку "I'll be back" (подтверждаем поражение)
+  expected-result: |
+    Пользователь сдался, отображается оповещение "If you read this you've lost the game", игровая сессия завершена
+    
+- summary: |
+    Поражение в игре 
+  requirement: |
+    Если соперник завершит задание раньше, то игрок проиграет
+  prerequisites: |
+    Произведена авторизация
+    Открыта страница сайта https://codebattle.hexlet.io
+    Запущена игровая сессия
+  test-data: |
+    Email = sansaq@mail.ru Пароль = qwertyq
+  steps:
+    - Ничего не делаем, дожидаемся победы соперника
+    - Кликаем конпку "I'll be back" (подтверждаем поражение)
+  expected-result: |
+    Пользователь проиграл, отображается оповещение "If you read this you've lost the game", игровая сессия завершена
