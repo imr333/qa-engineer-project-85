@@ -255,3 +255,18 @@
     Удаление созданной игровой сессии
   status: pass
 
+- summary: |
+    Создание игры "CREATE GAME" против друга
+  status: pass
+  
+- summary: |
+    Создание игры "CREATE GAME" против бота
+  status: pass
+  
+- summary: |
+    Функция "Give up" (сдаться)
+  status: pass
+  
+- summary: |
+    Поражение в игре
+  status: pass
