@@ -270,3 +270,8 @@
 - summary: |
     Поражение в игре
   status: pass
+  
+- summary: |
+    Победа в игре + проверка кода 
+  status: pass
+
