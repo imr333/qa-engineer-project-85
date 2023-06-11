@@ -1049,3 +1049,34 @@
     - Кликаем конпку "I'll be back" (подтверждаем поражение)
   expected-result: |
     Пользователь проиграл, отображается оповещение "If you read this you've lost the game", игровая сессия завершена
+    
+- summary: |
+    Победа в игре + проверка кода 
+  requirement: |
+    Если пользователь введет верный код раньше рсоперника, то победит
+  prerequisites: |
+    Произведена авторизация
+    Открыта страница сайта https://codebattle.hexlet.io
+  test-data: |
+    Email = sansaq@mail.ru Пароль = qwertyq
+  steps:
+    - Кликаем на кнопку "CREATE GAME"
+    - Задаем параметры игры
+        Выбор кол-ва звезд уровня ("Level") = "1"
+        Выбор типа игры ("Game type") = "With a bot"
+        Выбор ограничения времени на игру ("Time control") = "10 min"
+        Выбор игрового задания ("Choose task by name or tags") = "rect_area"
+    - Кликаем на кнопку "Create battle"
+    - Вставляем в решение следующий код 
+        "const _ = require("lodash");
+        const R = require("rambda");
+        const solution = (width, length) => {
+            return width * length;
+        };
+        module.exports = solution;"
+    - Нажимаем на кнопку проверки раньше соперника
+  expected-result: |
+    Код прошел проверку, пользователь победил, отображается оповещение "Woohoo, you're Champion!!!!!", игровая сессия завершена
+
+  
+    
